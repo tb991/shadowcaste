@@ -1,0 +1,82 @@
+<!-- made by chatgpt in 2025 -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shadowcaste Cipher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em;
+    }
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      height: 100px;
+      margin-bottom: 1em;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    button {
+      padding: 0.5em 1em;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    .output {
+      margin-top: 1em;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #222;
+      padding: 1em;
+      border-radius: 5px;
+      width: 90%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Shadowcaste Cipher</h1>
+  <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+  <br />
+  <button onclick="shadowcaste()">Transform</button>
+  <div class="output" id="outputText"></div>
+
+  <script>
+    function shadowcaste() {
+      const input = document.getElementById("inputText").value;
+      const charlist = [];
+      for (const char of input) {
+        if (!charlist.includes(char)) {
+          charlist.push(char);
+        }
+      }
+
+      function shadowIndex(char) {
+        return charlist.length - (charlist.indexOf(char) + 1);
+      }
+
+      let output = "";
+      for (const char of input) {
+        const mirrored = charlist[shadowIndex(char)];
+        output += mirrored;
+      }
+
+      document.getElementById("outputText").innerText = output;
+    }
+  </script>
+</body>
+  </html>
