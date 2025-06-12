@@ -1,6 +1,5 @@
-<!-- made by chatgpt in 2025 -->
 <!DOCTYPE html>
-
+<!-- made using ai -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -59,24 +58,23 @@
     function shadowcaste() {
       const input = document.getElementById("inputText").value;
       const charlist = [];
+
       for (const char of input) {
         if (!charlist.includes(char)) {
           charlist.push(char);
         }
       }
 
-      function shadowIndex(char) {
-        return charlist.length - (charlist.indexOf(char) + 1);
-      }
-
       let output = "";
+
       for (const char of input) {
-        const mirrored = charlist[shadowIndex(char)];
-        output += mirrored;
+        const i = charlist.indexOf(char);
+        const mirroredIndex = charlist.length - i - 1;
+        output += charlist[mirroredIndex];
       }
 
       document.getElementById("outputText").innerText = output;
     }
   </script>
 </body>
-  </html>
+</html>
